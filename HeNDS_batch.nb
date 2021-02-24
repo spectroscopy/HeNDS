@@ -1,0 +1,170 @@
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"enter", " ", "nozzle", " ", "diameter", " ", 
+    RowBox[{
+     RowBox[{"(", "dia", ")"}], " ", "/", " ", "micron"}]}], ",", " ", 
+   RowBox[{"and", " ", "initial", " ", 
+    RowBox[{"(", "in", ")"}]}], ",", 
+   RowBox[{"final", " ", 
+    RowBox[{"(", "f", ")"}]}], ",", 
+   RowBox[{"and", " ", "increment", " ", 
+    RowBox[{"(", "incr", ")"}], " ", "values", " ", "for", " ", "temperature",
+     " ", 
+    RowBox[{
+     RowBox[{"(", "T", ")"}], " ", "/", " ", "K"}], " ", "and", " ", 
+    "pressure", " ", 
+    RowBox[{
+     RowBox[{"(", "P", ")"}], " ", "/", " ", "bar"}]}], ",", " ", 
+   RowBox[{"then", " ", 
+    RowBox[{"evaluate", "!"}], " ", "erroneous", " ", "values", " ", "will", 
+    " ", "not", " ", "be", " ", "written", " ", "to", " ", "file"}]}], 
+  "*)"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dia", "=", "5"}], ";", 
+  StyleBox[
+   RowBox[{"Tin", "=", "15"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]], 
+  StyleBox[
+   RowBox[{"Tf", "=", "20"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]], 
+  StyleBox[
+   RowBox[{"Tincr", "=", "0.2"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]], 
+  StyleBox[
+   RowBox[{"Pin", "=", "15"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]], 
+  StyleBox[
+   RowBox[{"Pf", "=", "20"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]], 
+  StyleBox[
+   RowBox[{"Pincr", "=", "0.2"}],
+   FontColor->GrayLevel[0]], 
+  StyleBox[";",
+   FontColor->GrayLevel[0]]}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"file", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<HeNDS.dat\>\""}], 
+     "}"}], "]"}]}], ";"}]], "Input"],
+
+Cell[" ", "Text",
+ Editable->False,
+ Selectable->False,
+ CellFrame->{{0, 0}, {0, 0.5}},
+ ShowCellBracket->False,
+ CellMargins->{{0, 0}, {1, 1}},
+ CellElementSpacings->{"CellMinHeight"->1},
+ CellFrameMargins->0,
+ CellFrameColor->RGBColor[0, 0, 1],
+ CellSize->{Inherited, 3}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"OpenWrite", "[", 
+   RowBox[{"file", ",", 
+    RowBox[{"FormatType", "\[Rule]", "OutputForm"}]}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"BLANK", "=", "\"\<  \>\""}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Write", "[", 
+   RowBox[{
+   "file", ",", "\"\<T\>\"", ",", "BLANK", ",", "\"\<P\>\"", ",", "BLANK", 
+    ",", "\"\<density\>\"", ",", "BLANK", ",", "\"\<speed_of_sound\>\"", ",", 
+    "BLANK", ",", "\"\<<N>\>\""}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Write", "[", 
+   RowBox[{
+   "file", ",", "\"\<K\>\"", ",", "BLANK", ",", "\"\<bar\>\"", ",", "BLANK", 
+    ",", "\"\<kg/m^3\>\"", ",", "BLANK", ",", "\"\<m/s\>\"", ",", "BLANK", 
+    ",", "\"\<He\>\""}], "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Quiet", "[", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"NotebookEvaluate", "[", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
+        "\"\<\\\\HeNDS.nb\>\""}], "}"}], "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"temperature", ",", "Tin", ",", "Tf", ",", "Tincr"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"pressure", ",", "Pin", ",", "Pf", ",", "Pincr"}], "}"}]}], 
+   "]"}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Close", "[", "file", "]"}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"helium", "=", 
+   RowBox[{"Import", "[", "file", "]"}]}], ";"}]], "Input"],
+
+Cell[" ", "Text",
+ Editable->False,
+ Selectable->False,
+ CellFrame->{{0, 0}, {0, 0.5}},
+ ShowCellBracket->False,
+ CellMargins->{{0, 0}, {1, 1}},
+ CellElementSpacings->{"CellMinHeight"->1},
+ CellFrameMargins->0,
+ CellFrameColor->RGBColor[0, 0, 1],
+ CellSize->{Inherited, 3}],
+
+Cell[BoxData[
+ RowBox[{"ListPlot3D", "[", 
+  RowBox[{
+   RowBox[{"helium", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "2", ",", "5"}], "}"}]}], "]"}], "]"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Tin", ",", "Tf"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"Pin", ",", "Pf"}], "}"}], ",", "All"}], "}"}]}], ",", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<T / K\>\"", ",", "\"\<P / bar\>\"", ",", "\"\<<N>\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<DarkRainbow\>\""}], ",", 
+   RowBox[{"ClippingStyle", "\[Rule]", "None"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}]], "Input"]
+},
+WindowSize->{783, 697},
+WindowMargins->{{368, Automatic}, {Automatic, 54}},
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
