@@ -8,6 +8,6 @@ Calculations are for Regions I, II, I&III, II&III, and III for T>Tc (5.2014 K); 
 
 Output values are suppressed when the input pressure is greater than the vapor pressure (for a given input temperature).
 
-Example output for a 5.0 micron nozzle diameter:
+Example output for a 5.0 micron nozzle diameter (red=3500 atoms; purple=500 atoms):
 
 ![HeNDS_batch](https://user-images.githubusercontent.com/75122115/113648886-5f4cef80-965b-11eb-92a5-72a0d43c3dd1.png)
