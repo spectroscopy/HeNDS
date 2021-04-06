@@ -1,27 +1,43 @@
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
- RowBox[{"(*", 
-  RowBox[{
-   RowBox[{"enter", " ", "nozzle", " ", "diameter", " ", 
+ RowBox[{
+  RowBox[{"(*", "HeNDS_batch", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"see", " ", "<", 
+     RowBox[{"https", ":"}]}], "//", 
     RowBox[{
-     RowBox[{"(", "dia", ")"}], " ", "/", " ", "micron"}]}], ",", " ", 
-   RowBox[{"and", " ", "initial", " ", 
-    RowBox[{"(", "in", ")"}]}], ",", 
-   RowBox[{"final", " ", 
-    RowBox[{"(", "f", ")"}]}], ",", 
-   RowBox[{"and", " ", "increment", " ", 
-    RowBox[{"(", "incr", ")"}], " ", "values", " ", "for", " ", "temperature",
-     " ", 
-    RowBox[{
-     RowBox[{"(", "T", ")"}], " ", "/", " ", "K"}], " ", "and", " ", 
-    "pressure", " ", 
-    RowBox[{
-     RowBox[{"(", "P", ")"}], " ", "/", " ", "bar"}]}], ",", " ", 
-   RowBox[{"then", " ", 
-    RowBox[{"evaluate", "!"}], " ", "erroneous", " ", "values", " ", "will", 
-    " ", "not", " ", "be", " ", "written", " ", "to", " ", "file"}]}], 
-  "*)"}]], "Input"],
+     RowBox[{
+      RowBox[{
+       RowBox[{"www", ".", "gnu", ".", "org"}], "/", "licenses"}], "/"}], ">",
+      " ", 
+     RowBox[{
+     "for", " ", "a", " ", "copy", " ", "of", " ", "the", " ", "GNU", " ", 
+      "General", " ", "Public", " ", "License"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"instructions", ":", " ", 
+     RowBox[{"enter", " ", "nozzle", " ", "diameter", " ", 
+      RowBox[{
+       RowBox[{"(", "dia", ")"}], " ", "/", " ", "micron"}]}]}], ",", " ", 
+    RowBox[{"and", " ", "initial", " ", 
+     RowBox[{"(", "in", ")"}]}], ",", " ", 
+    RowBox[{"final", " ", 
+     RowBox[{"(", "f", ")"}]}], ",", 
+    RowBox[{"and", " ", "increment", " ", 
+     RowBox[{"(", "incr", ")"}], " ", "values", " ", "for", " ", 
+     "temperature", " ", 
+     RowBox[{
+      RowBox[{"(", "T", ")"}], " ", "/", " ", "K"}], " ", "and", " ", 
+     "pressure", " ", 
+     RowBox[{
+      RowBox[{"(", "P", ")"}], " ", "/", " ", "bar"}]}], ",", " ", 
+    RowBox[{"then", " ", 
+     RowBox[{"evaluate", "!"}], " ", "erroneous", " ", "values", " ", "will", 
+     " ", "not", " ", "be", " ", "written", " ", "to", " ", "file"}]}], 
+   "*)"}]}]], "Input"],
 
 Cell[BoxData[
  RowBox[{
@@ -111,8 +127,8 @@ Cell[BoxData[
      RowBox[{"FileNameJoin", "[", 
       RowBox[{"{", 
        RowBox[{
-        RowBox[{"NotebookDirectory", "[", "]"}], ",", 
-        "\"\<\\\\HeNDS.nb\>\""}], "}"}], "]"}], "]"}], ",", 
+        RowBox[{"NotebookDirectory", "[", "]"}], ",", "\"\<HeNDS.nb\>\""}], 
+       "}"}], "]"}], "]"}], ",", 
     RowBox[{"{", 
      RowBox[{"temperature", ",", "Tin", ",", "Tf", ",", "Tincr"}], "}"}], ",", 
     RowBox[{"{", 
@@ -140,28 +156,21 @@ Cell[" ", "Text",
  CellSize->{Inherited, 3}],
 
 Cell[BoxData[
- RowBox[{"ListPlot3D", "[", 
+ RowBox[{"ListContourPlot", "[", 
   RowBox[{
    RowBox[{"helium", "[", 
     RowBox[{"[", 
      RowBox[{"All", ",", 
       RowBox[{"{", 
        RowBox[{"1", ",", "2", ",", "5"}], "}"}]}], "]"}], "]"}], ",", 
-   RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<Rainbow\>\""}], ",", 
+   RowBox[{"Contours", "\[Rule]", "100"}], ",", 
+   RowBox[{"PlotLegends", "\[Rule]", "Automatic"}], ",", 
+   RowBox[{"ContourStyle", "\[Rule]", "None"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
     RowBox[{"{", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"Tin", ",", "Tf"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"Pin", ",", "Pf"}], "}"}], ",", "All"}], "}"}]}], ",", 
-   RowBox[{"AxesLabel", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{"\"\<T / K\>\"", ",", "\"\<P / bar\>\"", ",", "\"\<<N>\>\""}], 
-     "}"}]}], ",", 
-   RowBox[{"ColorFunction", "\[Rule]", "\"\<DarkRainbow\>\""}], ",", 
-   RowBox[{"ClippingStyle", "\[Rule]", "None"}], ",", 
-   RowBox[{"ImageSize", "\[Rule]", "600"}], ",", 
-   RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}]], "Input"]
+     RowBox[{"\"\<T / K\>\"", ",", "\"\<P / bar\>\""}], "}"}]}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<<N>\>\""}]}], "]"}]], "Input"]
 },
 WindowSize->{783, 697},
 WindowMargins->{{368, Automatic}, {Automatic, 54}},
